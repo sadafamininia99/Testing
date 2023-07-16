@@ -8,11 +8,13 @@ function fetchData() {
   }
   
   async function asyncFunction() {
-    const data = await fetchData();
-    return data;
+    try {
+      const data = await fetchData();
+      return data;
+    } catch (error) {
+      throw new Error('Error fetching data');
+    }
   }
-  
-
   
   module.exports = asyncFunction;
   
