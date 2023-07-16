@@ -1,7 +1,3 @@
-
-
-
-
 const asyncFunction = require('./asyncFunction');
 
 describe('asyncFunction', () => {
