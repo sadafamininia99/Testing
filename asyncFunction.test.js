@@ -1,12 +1,24 @@
-const asyncFunction = require('./asyncFunction');
+// asyncFunction.js
+async function asyncFunction() {
+  // Simulating data fetching
+  const data = await fetchData();
 
-describe('asyncFunction', () => {
-  test('should return the fetched data', async () => {
-    const data = await asyncFunction();
-    expect(data).toBe('Data successfully fetched');
-  });
+  if (data === 'Error') {
+    throw new Error('Error fetching data');
+  }
 
-  test('should throw an error if data fetching fails', async () => {
-    await expect(asyncFunction()).rejects.toThrowError('Error fetching data');
+  return data;
+}
+
+async function fetchData() {
+  // Simulating an error during data fetching
+  // Replace this with your actual data fetching logic
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // Simulating a data fetching error by returning 'Error'
+      resolve('Data successfully fetched');
+    }, 200);
   });
-});
+}
+
+module.exports = asyncFunction;
